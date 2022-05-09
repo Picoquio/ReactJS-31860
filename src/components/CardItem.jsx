@@ -1,20 +1,27 @@
 // acá van las cards de los productos
 
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Item = ({itemData}) => {
+const Item = ({ itemData }) => {
     return (
+        <>
+            
 
-        <div className="card card-compact w-96 bg-base-100 shadow-xl">
-            <figure><img src={itemData.pictureUrl} alt="Shoes" /></figure>
-            <div className="card-body">
-                <h2 className="card-title">{itemData.title}</h2>
-                <p>Price: {itemData.price}</p>
-                <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy now</button>
+        
+            <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
+                <Link to={`/item/${itemData.id}`} className="block relative h-48 rounded overflow-hidden">
+                    <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={itemData.pictureUrl}/>
+                </Link>
+                <div className="mt-4">
+                    <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                    <h2 className="text-gray-900 title-font text-lg font-medium">{itemData.title}</h2>
+                    <p className="mt-1">${itemData.price}</p>
                 </div>
             </div>
-        </div>
+
+        </>
+
     )
 }
 
